@@ -33,25 +33,6 @@ async function getShowsByTerm( term ) {
     };
   });
 }
-  // return [
-  //   {
-  //     id: 1767,
-  //     name: "The Bletchley Circle",
-  //     summary:
-  //       `<p><b>The Bletchley Circle</b> follows the journey of four ordinary 
-  //          women with extraordinary skills that helped to end World War II.</p>
-  //        <p>Set in 1952, Susan, Millie, Lucy and Jean have returned to their 
-  //          normal lives, modestly setting aside the part they played in 
-  //          producing crucial intelligence, which helped the Allies to victory 
-  //          and shortened the war. When Susan discovers a hidden code behind an
-  //          unsolved murder she is met by skepticism from the police. She 
-  //          quickly realises she can only begin to crack the murders and bring
-  //          the culprit to justice with her former friends.</p>`,
-  //     image:
-  //         "http://static.tvmaze.com/uploads/images/medium_portrait/147/369403.jpg"
-  //   }
-  // ]
-// }
 
 
 /** Given list of shows, create markup for each and to DOM */
@@ -122,11 +103,12 @@ $searchForm.on("submit", async function (evt) {
 
 /** Write a clear docstring for this function... */
 
-// function populateEpisodes(episodes) { }
+// param episodes: list of series episodes
+// parses episodes and appends them to the dom
 function populateEpisodes(episodes) {
   $episodesList.empty();
 
-  for (let episode of episodes) {
+  for (let episode of episodes) {     // traveses episodes list and appends them in an 'li'
     const $item = $(
         `<li>
          ${episode.name}
@@ -137,7 +119,7 @@ function populateEpisodes(episodes) {
     $episodesList.append($item);
   }
 
-  $episodesArea.show();
+  $episodesArea.show();   // Reveal Episodes Area
 }
 
 async function displayEpisodes(e) {
